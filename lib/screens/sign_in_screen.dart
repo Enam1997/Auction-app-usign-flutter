@@ -34,16 +34,8 @@ class _SignInScreenState extends State<SignInScreen> {
                     Flexible(
                       flex: 1,
                       child: Image.asset(
-                        'images/logo.png',
+                        'images/logo.gif',
                         height: 160,
-                      ),
-                    ),
-                    SizedBox(height: 20),
-                    Text(
-                      'Auction',
-                      style: TextStyle(
-                        color: CustomColors.Yellow,
-                        fontSize: 40,
                       ),
                     ),
                     Text(
