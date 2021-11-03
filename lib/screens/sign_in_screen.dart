@@ -34,7 +34,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     Flexible(
                       flex: 1,
                       child: Image.asset(
-                        'images/company_name.png',
+                        'images/logo.png',
                         height: 160,
                       ),
                     ),
