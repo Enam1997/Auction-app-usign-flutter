@@ -41,7 +41,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     Text(
                       'Sell Your Product Here',
                       style: TextStyle(
-                        color: CustomColors.Yellow,
+                        color: CustomColors.textColor1,
                         fontSize: 20,
                       ),
                     ),
@@ -58,7 +58,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   }
                   return CircularProgressIndicator(
                     valueColor: AlwaysStoppedAnimation<Color>(
-                      CustomColors.Orange,
+                      CustomColors.black,
                     ),
                   );
                 },

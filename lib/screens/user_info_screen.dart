@@ -53,7 +53,10 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
         elevation: 0,
         backgroundColor: CustomColors.appBackGroundColor,
         title: Center(
-          child: Text("Auction App"),
+          child: Text("Auction App",style: TextStyle(
+              color: CustomColors.textColor1.withOpacity(0.8),
+              fontSize: 20,
+              letterSpacing: 0.2)),
         ),
       ),
       body: SafeArea(
@@ -70,7 +73,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
               _user.photoURL != null
                   ? ClipOval(
                       child: Material(
-                        color: CustomColors.Grey.withOpacity(0.3),
+                        color: CustomColors.black.withOpacity(0.3),
                         child: Image.network(
                           _user.photoURL!,
                           fit: BoxFit.fitHeight,
@@ -79,13 +82,13 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                     )
                   : ClipOval(
                       child: Material(
-                        color: CustomColors.Grey.withOpacity(0.3),
+                        color: CustomColors.black.withOpacity(0.3),
                         child: Padding(
                           padding: const EdgeInsets.all(16.0),
                           child: Icon(
                             Icons.person,
                             size: 60,
-                            color: CustomColors.Grey,
+                            color: CustomColors.black,
                           ),
                         ),
                       ),
@@ -94,7 +97,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
               Text(
                 'Hello',
                 style: TextStyle(
-                  color: CustomColors.Grey,
+                  color: CustomColors.textColor1,
                   fontSize: 26,
                 ),
               ),
@@ -102,7 +105,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
               Text(
                 _user.displayName!,
                 style: TextStyle(
-                  color: CustomColors.Yellow,
+                  color: CustomColors.textColor1,
                   fontSize: 26,
                 ),
               ),
@@ -110,7 +113,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
               Text(
                 '( ${_user.email!} )',
                 style: TextStyle(
-                  color: CustomColors.Orange,
+                  color: CustomColors.textColor1,
                   fontSize: 20,
                   letterSpacing: 0.5,
                 ),
@@ -119,7 +122,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
               Text(
                 'You are now signed in using your Google account. To sign out of your account, click the "Sign Out" button below.',
                 style: TextStyle(
-                    color: CustomColors.Grey.withOpacity(0.8),
+                    color: CustomColors.textColor1.withOpacity(0.8),
                     fontSize: 14,
                     letterSpacing: 0.2),
               ),
