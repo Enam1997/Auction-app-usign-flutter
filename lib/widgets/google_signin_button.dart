@@ -1,3 +1,4 @@
+import 'package:auctionapp/screens/home_screen.dart';
 import 'package:auctionapp/screens/user_info_screen.dart';
 import 'package:auctionapp/utils/authentication.dart';
 import 'package:flutter/material.dart';
@@ -43,7 +44,7 @@ class _GoogleSignInButtonState extends State<GoogleSignInButton> {
                 if (user != null) {
                   Navigator.of(context).pushReplacement(
                     MaterialPageRoute(
-                      builder: (context) => UserInfoScreen(
+                      builder: (context) => HomeScreen(
                         user: user,
                       ),
                     ),

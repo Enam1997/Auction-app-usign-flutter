@@ -1,3 +1,4 @@
+import 'package:auctionapp/screens/home_screen.dart';
 import 'package:auctionapp/screens/user_info_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
