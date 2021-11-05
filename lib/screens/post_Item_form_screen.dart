@@ -1,24 +1,26 @@
 import 'package:auctionapp/res/CustomColors.dart';
-import 'package:auctionapp/screens/post_Item_form_screen.dart';
 import 'package:auctionapp/screens/user_info_screen.dart';
 import 'package:fab_circular_menu/fab_circular_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import 'dashbord_screen.dart';
+import 'home_screen.dart';
 
-class HomeScreen extends StatefulWidget{
+class PostItemScreen extends StatefulWidget{
 
-  const HomeScreen({Key? key, required User user})
+  const PostItemScreen({Key? key, required User user})
       : _user = user,
         super(key: key);
 
   final User _user;
-  _HomeScreenState createState() => _HomeScreenState();
+  _PostItemScreenState createState() => _PostItemScreenState();
+
+
 
 }
 
-class _HomeScreenState extends State<HomeScreen>{
+class _PostItemScreenState extends State<PostItemScreen>{
   late User _user;
 
   void initState() {
@@ -88,7 +90,7 @@ class _HomeScreenState extends State<HomeScreen>{
       ),
       body: Center(
         child: Text(
-          "Home",style: TextStyle(
+          "Item Form",style: TextStyle(
           color: CustomColors.textColor1,
           fontSize: 26,
         ),

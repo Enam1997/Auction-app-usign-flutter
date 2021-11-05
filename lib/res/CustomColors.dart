@@ -6,5 +6,8 @@ class CustomColors {
   static final textColor1 = const Color(0xFF000000);
   //static final Orange = const Color(0xFFF57C00);
   static final black = const Color(0xFF000000);
-  static final textColor2 = const Color(0xFFEEEEEE);
+  static final fabMenuRingColor = const Color(0xFF000000);
+  static final fabColor = const Color(0xFF000000);
+  static final fabCloseColor = const Color(0xFFFF8C00);
+
 }
