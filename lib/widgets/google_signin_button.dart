@@ -1,3 +1,5 @@
+import 'package:auctionapp/res/CustomColors.dart';
+import 'package:auctionapp/screens/home_screen.dart';
 import 'package:auctionapp/screens/user_info_screen.dart';
 import 'package:auctionapp/utils/authentication.dart';
 import 'package:flutter/material.dart';
@@ -17,11 +19,11 @@ class _GoogleSignInButtonState extends State<GoogleSignInButton> {
       padding: const EdgeInsets.only(bottom: 16.0),
       child: _isSigningIn
           ? CircularProgressIndicator(
-              valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+              valueColor: AlwaysStoppedAnimation<Color>(CustomColors.progressIndicator),
             )
           : OutlinedButton(
               style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.white),
+                backgroundColor: MaterialStateProperty.all(CustomColors.googleSignInButtonColor),
                 shape: MaterialStateProperty.all(
                   RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(40),
@@ -43,7 +45,7 @@ class _GoogleSignInButtonState extends State<GoogleSignInButton> {
                 if (user != null) {
                   Navigator.of(context).pushReplacement(
                     MaterialPageRoute(
-                      builder: (context) => UserInfoScreen(
+                      builder: (context) => HomeScreen(
                         user: user,
                       ),
                     ),

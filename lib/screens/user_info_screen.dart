@@ -1,9 +1,12 @@
 import 'package:auctionapp/res/CustomColors.dart';
+import 'package:auctionapp/res/text_value.dart';
 import 'package:auctionapp/screens/dashbord_screen.dart';
 import 'package:auctionapp/screens/home_screen.dart';
 import 'package:auctionapp/screens/post_Item_form_screen.dart';
 import 'package:auctionapp/screens/sign_in_screen.dart';
 import 'package:auctionapp/utils/authentication.dart';
+import 'package:auctionapp/widgets/custom_app_bar.Dart.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fab_circular_menu/fab_circular_menu.dart';
@@ -59,19 +62,19 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
             fabColor: CustomColors.fabColor,
             fabCloseColor: CustomColors.fabCloseColor,
             children: <Widget>[
-              IconButton(icon: Icon(Icons.home), onPressed: () {
+              IconButton(icon: Icon(Icons.dashboard), onPressed: () {
                 Navigator.of(context).pushReplacement(
                   MaterialPageRoute(
-                    builder: (context) => HomeScreen(
+                    builder: (context) => DashbordScreen(
                       user: _user,
                     ),
                   ),
                 );
               }),
-              IconButton(icon: Icon(Icons.dashboard), onPressed: () {
+              IconButton(icon: Icon(Icons.home), onPressed: () {
                 Navigator.of(context).pushReplacement(
                   MaterialPageRoute(
-                    builder: (context) => DashbordScreen(
+                    builder: (context) => HomeScreen(
                       user: _user,
                     ),
                   ),
@@ -86,6 +89,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                   ),
                 );
               }),
+
               IconButton(icon: Icon(Icons.add), onPressed: () {
                 Navigator.of(context).pushReplacement(
                   MaterialPageRoute(
@@ -99,15 +103,10 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
             ]
         ),
         backgroundColor: CustomColors.appBackGroundColor,
-        appBar: AppBar(
-          elevation: 0,
-          backgroundColor: CustomColors.appBackGroundColor,
-          title: Center(
-            child: Text("Auction App",style: TextStyle(
-                color: CustomColors.textColor1.withOpacity(0.8),
-                fontSize: 20,
-                letterSpacing: 0.2)),
-          ),
+        appBar:
+        CustomAppBar(
+          title: TextValue.appBarTitle,
+          backGroundColor: CustomColors.appBarColor,
         ),
         body: Padding(
             padding: const EdgeInsets.only(

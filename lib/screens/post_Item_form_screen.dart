@@ -1,5 +1,7 @@
 import 'package:auctionapp/res/CustomColors.dart';
+import 'package:auctionapp/res/text_value.dart';
 import 'package:auctionapp/screens/user_info_screen.dart';
+import 'package:auctionapp/widgets/custom_app_bar.Dart.dart';
 import 'package:fab_circular_menu/fab_circular_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -36,17 +38,6 @@ class _PostItemScreenState extends State<PostItemScreen> {
           fabCloseColor: CustomColors.fabCloseColor,
           children: <Widget>[
             IconButton(
-                icon: Icon(Icons.home),
-                onPressed: () {
-                  Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(
-                      builder: (context) => HomeScreen(
-                        user: _user,
-                      ),
-                    ),
-                  );
-                }),
-            IconButton(
                 icon: Icon(Icons.dashboard),
                 onPressed: () {
                   Navigator.of(context).pushReplacement(
@@ -57,6 +48,18 @@ class _PostItemScreenState extends State<PostItemScreen> {
                     ),
                   );
                 }),
+            IconButton(
+                icon: Icon(Icons.home),
+                onPressed: () {
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(
+                      builder: (context) => HomeScreen(
+                        user: _user,
+                      ),
+                    ),
+                  );
+                }),
+
             IconButton(
                 icon: Icon(Icons.people),
                 onPressed: () {
@@ -81,16 +84,10 @@ class _PostItemScreenState extends State<PostItemScreen> {
                 })
           ]),
       backgroundColor: CustomColors.appBackGroundColor,
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: CustomColors.appBackGroundColor,
-        title: Center(
-          child: Text("Auction App",
-              style: TextStyle(
-                  color: CustomColors.textColor1.withOpacity(0.8),
-                  fontSize: 20,
-                  letterSpacing: 0.2)),
-        ),
+      appBar:
+      CustomAppBar(
+        title: TextValue.appBarTitle,
+        backGroundColor: CustomColors.appBarColor,
       ),
       body: Center(
         child: Text(

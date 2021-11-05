@@ -15,7 +15,7 @@ class _SignInScreenState extends State<SignInScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: CustomColors.appBackGroundColor,
+        backgroundColor: CustomColors.signInScreenColor,
         body: SafeArea(
           child: Padding(
             padding: const EdgeInsets.only(
