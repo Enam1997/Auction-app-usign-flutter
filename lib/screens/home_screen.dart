@@ -1,3 +1,4 @@
+import 'package:auctionapp/model/item.dart';
 import 'package:auctionapp/res/CustomColors.dart';
 import 'package:auctionapp/res/text_value.dart';
 import 'package:auctionapp/screens/post_Item_form_screen.dart';
@@ -6,7 +7,7 @@ import 'package:auctionapp/widgets/custom_app_bar.Dart.dart';
 import 'package:fab_circular_menu/fab_circular_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'dashbord_screen.dart';
 
 class HomeScreen extends StatefulWidget{
@@ -22,11 +23,35 @@ class HomeScreen extends StatefulWidget{
 
 class _HomeScreenState extends State<HomeScreen>{
   late User _user;
+  var _fireStoreInstance = FirebaseFirestore.instance;
+  List items=[];
+
+  fetchItem()async{
+    QuerySnapshot qn = await _fireStoreInstance.collection("Items").get();
+    setState(() {
+      for (int i =0 ; i < qn.docs.length; i++){
+        items.add({
+          "userEmail": qn.docs[i]["userEmail"],
+          "title": qn.docs[i]["title"],
+          "price": qn.docs[i]["price"],
+          "imageURL": qn.docs[i]["imageURL"],
+          "desc": qn.docs[i]["desc"],
+        });
+
+
+      }
+      print(items);
+    });
+
+   // return list;
+  }
+
 
   void initState() {
     _user = widget._user;
 
     super.initState();
+    fetchItem();
   }
   @override
   Widget build(BuildContext context) {
@@ -83,14 +108,42 @@ class _HomeScreenState extends State<HomeScreen>{
         title: TextValue.appBarTitle,
         backGroundColor: CustomColors.appBarColor,
       ),
-      body: Center(
-        child: Text(
-          "Home",style: TextStyle(
-          color: CustomColors.textColor1,
-          fontSize: 26,
-        ),
-        ),
-      ),
+      body:
+      GridView.builder(
+            scrollDirection: Axis.vertical,
+              itemCount: items.length,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,childAspectRatio: 1), itemBuilder: (_,index){
+            return Card(
+              elevation: 3,
+              child: Column(
+                children: [
+                  // AspectRatio(aspectRatio: 2, child: Image.network(items[index]["imageURL"][0],
+                  //   fit: BoxFit.fitHeight,
+                  // ),
+                  // ),
+                  AspectRatio(aspectRatio:2,child: Image.asset('images/dumy.jpg',fit: BoxFit.fitHeight,)),
+                  Text("${items[index]["title"]}"),
+                  Text("${items[index]["price"].toString()}")
+                ],
+              ),
+            );
+          }),
+
+
+    //   Container(
+    // child: list.length==0? Center(child: Text("No Post",style: TextStyle(
+    //     color: CustomColors.appBarTextColor,
+    //     fontSize: 26,
+    //     fontWeight: FontWeight.bold,
+    //     fontStyle: FontStyle.italic
+    // ))):ListView.builder(itemCount: list.length,
+    // itemBuilder:(_,index){
+    // return MyUI(list[index].title, list[index].url, list[index].price, list[index].desc, list[index].seller);
+    // },
+    // ),
+    // ),
     ));
+
+
   }
 }

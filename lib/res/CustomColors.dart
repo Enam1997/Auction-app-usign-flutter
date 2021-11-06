@@ -14,7 +14,7 @@ class CustomColors {
   static final fabMenuRingColor = const Color(0xff2196F3);
   static final fabColor = const Color(0xFF000000);
   static final fabCloseColor = const Color(0xff2196F3);
-  static final progressIndicator = const Color(0xFF000000);
+  static final progressIndicator = const Color(0xFFFFFFFF);
   static final googleSignInButtonColor = const Color(0xFFFFFFFF);
 
 }
