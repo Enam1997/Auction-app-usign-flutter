@@ -9,6 +9,8 @@ class CustomColors {
   static final appBarTextColor = const Color(0xff2196F3);
   static final itemCardColor = const Color(0xfff7f7f7);
   static final itemInsideFlutButtonColor = const Color(0xff2196F3);
+  static final fromFienldBorderColor = const Color(0xff2196F3);
+
 
 
   static final textColor1 = const Color(0xFF000000);

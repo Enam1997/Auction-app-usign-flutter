@@ -34,6 +34,9 @@ class _HomeScreenState extends State<HomeScreen> {
           "price": qn.docs[i]["price"],
           "imageURL": qn.docs[i]["imageURL"],
           "desc": qn.docs[i]["desc"],
+          "quantity": qn.docs[i]["quantity"],
+
+
         });
       }
     });
@@ -150,22 +153,52 @@ class _HomeScreenState extends State<HomeScreen> {
                     Padding(
                       padding: const EdgeInsets.all(5.0),
                       child: Text("Min Bid: "
-                        "${items[index]["price"].toString()}" " Tk",
+                        "${items[index]["price"].toString()}"" Tk",
+                        style: TextStyle(color: CustomColors.textColor1),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: Text("Quantity : "
+                          "${items[index]["quantity"].toString()}",
+                        style: TextStyle(color: CustomColors.textColor1),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: Text("Bid End : "
+                          "07/11/2021",
                         style: TextStyle(color: CustomColors.textColor1),
                       ),
                     ),
                     ButtonBar(
                       children: [
-                        FlatButton(
-                          color: CustomColors.itemInsideFlutButtonColor,
-                          child: const Text('Details'),
-                          onPressed: () {/* ... */},
+                        ElevatedButton(
+                          child: Text('Favourite'),
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                              primary: CustomColors.itemInsideFlutButtonColor,
+                              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                              textStyle: TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold)),
                         ),
-                        FlatButton(
-                          color: CustomColors.itemInsideFlutButtonColor,
-                          child: const Text('Bid'),
-                          onPressed: () {/* ... */},
-                        )
+                        ElevatedButton(
+                          child: Text('Bid'),
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                              primary: CustomColors.itemInsideFlutButtonColor,
+                              padding: EdgeInsets.symmetric(horizontal: 60, vertical: 15),
+                              textStyle: TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold)),
+                        ),
+
+                        // FlatButton(
+                        //   color: CustomColors.itemInsideFlutButtonColor,
+                        //   child: const Text('Bid'),
+                        //   onPressed: () {/* ... */},
+                        // )
                       ],
                     )
                   ],
