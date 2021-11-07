@@ -1,7 +1,7 @@
-import 'package:auctionapp/model/item.dart';
 import 'package:auctionapp/res/CustomColors.dart';
 import 'package:auctionapp/res/text_value.dart';
 import 'package:auctionapp/screens/post_Item_form_screen.dart';
+import 'package:auctionapp/screens/product_details_screen.dart';
 import 'package:auctionapp/screens/user_info_screen.dart';
 import 'package:auctionapp/widgets/custom_app_bar.Dart.dart';
 import 'package:fab_circular_menu/fab_circular_menu.dart';
@@ -190,7 +190,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         ElevatedButton(
                           child: Text('Bid'),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (_)=>ProductDetails(items[index])));
+                          },
                           style: ElevatedButton.styleFrom(
                               primary: CustomColors.itemInsideFlutButtonColor,
                               padding: EdgeInsets.symmetric(horizontal: 60, vertical: 10),
