@@ -28,7 +28,8 @@ class _HomeScreenState extends State<HomeScreen> {
     QuerySnapshot qn = await _fireStoreInstance.collection("Items").get();
     setState(() {
       for (int i = 0; i < qn.docs.length; i++) {
-        items.add({
+        items.add(
+        {
           "userEmail": qn.docs[i]["userEmail"],
           "title": qn.docs[i]["title"],
           "price": qn.docs[i]["price"],

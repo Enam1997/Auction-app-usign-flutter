@@ -10,6 +10,8 @@ class ProductDetails extends StatefulWidget {
 }
 
 class _ProductDetailsState extends State<ProductDetails> {
+  final itemPriceController = TextEditingController();
+  final _keyForm = GlobalKey<FormState>();
 
 
   @override
@@ -45,11 +47,61 @@ class _ProductDetailsState extends State<ProductDetails> {
                       fontWeight: FontWeight.bold, fontSize: 30, color: Colors.red),
                 ),
                 Divider(),
+                TextFormField(
+                  maxLines: 5,
+                  minLines: 2,
+                  style: TextStyle(
+                      color: CustomColors.black
+                  ),
+                  controller: itemPriceController,
+                  keyboardType: TextInputType.number,
+                  textInputAction: TextInputAction.next,
+                  //maxLength: 11,
+                  validator: (value){
+                    if(value == null || value.isEmpty){
+                      return 'Please Enter Amount';
+                    }else{
+                      /*if(value < Min price ){
+                          return null;
+                        }else{
+                          return 'Please Getter Then minimum price ';
+                        }*/
+
+                      return null;
+                    }
+                  },
+                  decoration: InputDecoration(
+                      hintText: 'Enter Ammount',
+                      hintStyle: TextStyle(
+                          fontSize: 18,
+                          color: CustomColors.textColor1
+                      ),
+                      enabledBorder: const OutlineInputBorder(
+                        // width: 0.0 produces a thin "hairline" border
+                        borderSide: const BorderSide(color: Colors.lightBlueAccent, width: 0.0,),
+                        borderRadius: BorderRadius.all(Radius.circular(15.0),),
+                      ),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(15.0))
+                      )
+                  ),
+                ),
+                Divider(),
                 SizedBox(
                     width: 200,
                     height: 50,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        final isValid = _keyForm.currentState!.validate();
+                        if (!isValid==true) {
+                          print("Please Input Something ");
+                        }
+                        else
+                        {
+                        }
+                        _keyForm.currentState!.save();
+
+                      },
                       child: Text(
                         "Bid",
                         style: TextStyle(color: Colors.white, fontSize: 18),
