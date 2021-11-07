@@ -4,8 +4,8 @@ Auction App like eBay. Use firebase auth users can signin using their gmail acco
 
 
 
-##  challenges faced
+#  challenges faced
 
 For developing this app when i get the requirnment i just start developing i dont plan this app propery, for this i faced probelem to add all feature like.
-    * Add Bid Data in Firebase
-    * Null Pointer Exception
+    ## Add Bid Data in Firebase
+    ## Null Pointer Exception
