@@ -14,7 +14,7 @@ like.
     
 
 # Requirnment
-- user can crate account using gmail account
+- user can create account using gmail account
 - user can see post auction item in item gallery
 - user can bid any item from auction gallery
 - user can see bids list place by other user
