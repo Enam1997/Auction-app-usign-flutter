@@ -58,7 +58,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
       child: Scaffold(
         floatingActionButton: FabCircularMenu(
             ringColor: CustomColors.fabMenuRingColor,
-            ringWidth: 80,
+            ringWidth: 100,
             fabColor: CustomColors.fabColor,
             fabCloseColor: CustomColors.fabCloseColor,
             children: <Widget>[

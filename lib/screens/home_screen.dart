@@ -58,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Scaffold(
       floatingActionButton: FabCircularMenu(
           ringColor: CustomColors.fabMenuRingColor,
-          ringWidth: 80,
+          ringWidth: 100,
           fabColor: CustomColors.fabColor,
           fabCloseColor: CustomColors.fabCloseColor,
           children: <Widget>[
@@ -116,10 +116,10 @@ class _HomeScreenState extends State<HomeScreen> {
           scrollDirection: Axis.vertical,
           itemCount: items.length,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2, childAspectRatio: 1),
+              crossAxisCount: 1, childAspectRatio: 1),
           itemBuilder: (_, index) {
             return Padding(
-              padding: const EdgeInsets.all(5.0),
+              padding: const EdgeInsets.all(3.0),
               child: Card(
                 clipBehavior: Clip.antiAlias,
                 color: CustomColors.itemCardColor,
@@ -150,20 +150,25 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Text("Min Bid: "
-                        "${items[index]["price"].toString()}"" Tk",
-                        style: TextStyle(color: CustomColors.textColor1),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Text("Quantity : "
-                          "${items[index]["quantity"].toString()}",
-                        style: TextStyle(color: CustomColors.textColor1),
-                      ),
-                    ),
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(5.0),
+                          child: Text("Min Bid: "
+                              "${items[index]["price"].toString()}"" Tk",
+                            style: TextStyle(color: CustomColors.textColor1),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(5.0),
+                          child: Text("Quantity : "
+                              "${items[index]["quantity"].toString()}",
+                            style: TextStyle(color: CustomColors.textColor1),
+                          ),
+                        )
+                      ],
+                    )
+                    ,
                     Padding(
                       padding: const EdgeInsets.all(5.0),
                       child: Text("Bid End : "
@@ -178,7 +183,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           onPressed: () {},
                           style: ElevatedButton.styleFrom(
                               primary: CustomColors.itemInsideFlutButtonColor,
-                              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
                               textStyle: TextStyle(
                                   fontSize: 15,
                                   fontWeight: FontWeight.bold)),
@@ -188,7 +193,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           onPressed: () {},
                           style: ElevatedButton.styleFrom(
                               primary: CustomColors.itemInsideFlutButtonColor,
-                              padding: EdgeInsets.symmetric(horizontal: 60, vertical: 15),
+                              padding: EdgeInsets.symmetric(horizontal: 60, vertical: 10),
                               textStyle: TextStyle(
                                   fontSize: 15,
                                   fontWeight: FontWeight.bold)),

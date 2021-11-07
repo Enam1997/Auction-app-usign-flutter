@@ -11,7 +11,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSize{
       //: super (key: key);
   @override
   // TODO: implement preferredSize
-  Size get preferredSize => Size.fromHeight(60.0);
+  Size get preferredSize => Size.fromHeight(45.0);
 
 
   @override
@@ -19,15 +19,18 @@ class CustomAppBar extends StatelessWidget implements PreferredSize{
     // TODO: implement build
     return AppBar(
       backgroundColor: backGroundColor,
-      title: Text(title,style: TextStyle(
-        color: CustomColors.appBarTextColor,
-        fontSize: 26,
-        fontWeight: FontWeight.bold,
-        fontStyle: FontStyle.italic
-      ),),
+      title: Padding(
+        padding: const EdgeInsets.only(left: 16.0,right: 16.0,top: 10,bottom: 10),
+        child: Text(title,style: TextStyle(
+          color: CustomColors.appBarTextColor,
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+          fontStyle: FontStyle.italic
+        ),),
+      ),
       elevation: 2,
       actions: [
-        IconButton(onPressed: null, icon: Icon(Icons.more_vert,color: CustomColors.appBarIconColor,))
+        IconButton(onPressed: null, icon: Icon(Icons.more_vert,color: CustomColors.appBarIconColor,),iconSize: 20,)
       ],
     );
   }
